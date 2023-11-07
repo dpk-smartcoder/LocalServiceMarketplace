@@ -1,8 +1,14 @@
 <!-- here i want to give full page to complete provider's details category wise -->
 <%-include("layouts/header")%>
-<h1>Provider Details</h1>
+<h1 class="head">Provider Details</h1>
 <hr>
-<h2>Name-<%=provider[0].name%> &emsp; Category-<%=provider[0].category%></h2>
-<h3>Email-<%=provider[0].email%> &emsp; Contact no.-<%=provider[0].pno%> &emsp; City-<%=provider[0].city%></h3>
-<p><%=provider[0].description%></p>
+<div class="container">
+<div class="row" >    
+<h2 class="col"><b><%=provider[0].name%></b></h2>
+<h4 class="col"><small><b>Category</b><br><%=provider[0].category%></small></h4>
+<h4 class="col"><small><b>City</b><br><%=provider[0].city%></small></h4></div>
+<div class="row"><h4 class="col-4"><small><b>Email</b><br><%=provider[0].email%></small></h4> 
+<h4 class="col-8"><small><b>Contact no.</b><br><%=provider[0].pno%></small></h4></div>
+
+<p><b><b>Description</b></b><br><%=provider[0].description%></p></div>
 <%-include("layouts/footer")%>

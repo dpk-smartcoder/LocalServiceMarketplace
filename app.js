@@ -24,7 +24,15 @@ app.get("/about",(req,res)=>{
     res.render("about");
 });
 app.get("/categories",(req,res)=>{
-    Provider.find({}).then((p)=>{res.render("categories",{providers:p});});
+    Provider.find({}).then((providers)=>{
+        var p=[];
+                for(var i=0;i<providers.length;i++){
+                    var x=1;
+                for(var j=0;j<p.length;j++){
+                    if(providers[i].category===p[j].category){x=0;break;}
+                }
+            if(x!=0){p.push(providers[i]);}}
+        res.render("categories",{providers:p});});
 });
 app.get("/contact",(req,res)=>{
     res.render("contact");
